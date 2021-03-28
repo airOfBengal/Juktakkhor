@@ -5,22 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class DragAndDrop : MonoBehaviour
+public class DragHandler : MonoBehaviour
 {
     public GameObject dragItem;
     public Canvas dragCanvas;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void StartDrag(GameObject selectedObject)
     {
@@ -40,9 +28,9 @@ public class DragAndDrop : MonoBehaviour
         Destroy(dragItem);
     }
 
-    public void Drop(TextMeshProUGUI dropSlot)
-    {
-        GameObject droppedItem = dragCanvas.transform.GetChild(0).gameObject;
-        dropSlot.text = droppedItem.GetComponent<TextMeshProUGUI>().text;
-    }
+    //public void Drop(TextMeshProUGUI dropSlot)
+    //{
+        //GameObject droppedItem = dragCanvas.transform.GetChild(0).gameObject;
+        //dropSlot.text = droppedItem.GetComponent<TextMeshProUGUI>().text;
+    //}
 }
