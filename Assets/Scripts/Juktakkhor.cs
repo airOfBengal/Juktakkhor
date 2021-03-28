@@ -6,8 +6,13 @@ public class Juktakkhor : MonoBehaviour
 {
     Dictionary<string, string> compoundLetters = new Dictionary<string, string>();
     System.Random _random = new System.Random();
-    int currentLetterIndex = 0;
+    static int currentLetterIndex = 0;
     string[] shuffledCompoundLetters;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +26,7 @@ public class Juktakkhor : MonoBehaviour
             shuffledCompoundLetters[i++] = s;
         }
 
-        Shuffle(shuffledCompoundLetters);
+        //Shuffle(shuffledCompoundLetters);
     }
 
 

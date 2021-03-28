@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
 
         if(givenAns == answer)
         {
-            Debug.Log("Correct");
+            Debug.Log("Correct!!!");
         }
         else
         {
-            Debug.Log("Incorrect");
+            Debug.Log("Incorrect!");
         }
     }
 
