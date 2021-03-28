@@ -9,13 +9,15 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
     [SerializeField] GameObject compoundLetterHolder;
     [SerializeField] GameObject constituentItemHolder;
     [SerializeField] Juktakkhor juktakkhor;
+    [SerializeField] TextMeshProUGUI scoreText;
 
     string answer;
+
+    public static bool answered = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
         string compoundLetter = juktakkhor.NextCompoundLetter();
         compoundLetterText.text = compoundLetter;
         answer = juktakkhor.GetAnswer(compoundLetter);
@@ -47,11 +49,10 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
         if(givenAns == answer)
         {
             Debug.Log("Correct!!!");
+            answered = true;
         }
-        else
-        {
-            Debug.Log("Incorrect!");
-        }
+
+        
     }
 
     public void OnLetterDrop()

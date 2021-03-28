@@ -27,10 +27,4 @@ public class DragHandler : MonoBehaviour
     {
         Destroy(dragItem);
     }
-
-    //public void Drop(TextMeshProUGUI dropSlot)
-    //{
-        //GameObject droppedItem = dragCanvas.transform.GetChild(0).gameObject;
-        //dropSlot.text = droppedItem.GetComponent<TextMeshProUGUI>().text;
-    //}
 }

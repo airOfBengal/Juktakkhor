@@ -10,14 +10,17 @@ public class CountDownTimer : MonoBehaviour
     SceneLoader sceneLoader;
 
     int currentCountDownValue;
-    TextMeshProUGUI textMeshProUGUI;
+    TextMeshProUGUI timerText;
+    TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         // Find game object to fix "Object reference not set to an instance of an object"
         sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
-        textMeshProUGUI = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
+        timerText = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
+        scoreText = GameObject.Find("Score Text").GetComponent<TextMeshProUGUI>();
+        scoreText.text = Scorer.score.ToString();
         StartCoroutine(StartCountDown());
     }
 
@@ -25,14 +28,22 @@ public class CountDownTimer : MonoBehaviour
     IEnumerator StartCountDown()
     {
         currentCountDownValue = timeToPlay;
-        while(currentCountDownValue > 0)
+        while(currentCountDownValue >= 0 && !GameManager.answered)
         {
-            textMeshProUGUI.text = 
-                currentCountDownValue.ToString();
+            timerText.text = currentCountDownValue.ToString();
+
             yield return new WaitForSeconds(1f);
             currentCountDownValue--;
         }
 
+        // update score
+        if(currentCountDownValue >= 0)
+        {
+            Scorer.score += long.Parse(timerText.text);
+        }
+        
+
+        GameManager.answered = false;
         sceneLoader.LoadNewScene();
     }
 }
