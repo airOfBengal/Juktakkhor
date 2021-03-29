@@ -24,7 +24,7 @@ public class DragHandler : MonoBehaviour
     public void Drag()
     {
         dragItem.transform.position = Input.mousePosition;
-        dragItem.transform.localScale = new Vector2(1, 1);
+        dragItem.transform.localScale = new Vector2(1, 1) * 1.1f;
     }
 
     public void StopDrag()
