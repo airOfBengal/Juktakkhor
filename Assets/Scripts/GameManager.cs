@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
         {
             GameObject constituentLetter = Instantiate(constituentItemHolder) as GameObject;
             constituentLetter.transform.SetParent(compoundLetterHolder.transform);
+            constituentLetter.transform.localScale = new Vector2(1, 1);
             DropHandler dropHandler = constituentLetter.transform.GetChild(0).GetComponent<DropHandler>();
             dropHandler.AddLetterDropListener(this);
         }

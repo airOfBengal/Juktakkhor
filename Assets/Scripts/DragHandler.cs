@@ -14,13 +14,13 @@ public class DragHandler : MonoBehaviour
     {
         dragItem = Instantiate(selectedObject, Input.mousePosition, selectedObject.transform.rotation) as GameObject;
         dragItem.transform.SetParent(dragCanvas.transform);
-        dragItem.transform.localScale = 1.1f * dragItem.transform.localScale;
         dragItem.GetComponent<TextMeshProUGUI>().raycastTarget = false;
     }
 
     public void Drag()
     {
         dragItem.transform.position = Input.mousePosition;
+        dragItem.transform.localScale = new Vector2(1, 1);
     }
 
     public void StopDrag()
