@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
     [SerializeField] GameObject compoundLetterHolder;
     [SerializeField] GameObject constituentItemHolder;
     [SerializeField] Juktakkhor juktakkhor;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip correctSfx;
+    [SerializeField] AudioClip incorrectSfx;
+    [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI scoreText;
 
     string answer;
 
-    public static bool answered = false;
+    public static volatile bool answered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +34,8 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
             DropHandler dropHandler = constituentLetter.transform.GetChild(0).GetComponent<DropHandler>();
             dropHandler.AddLetterDropListener(this);
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        scoreText.text = Scorer.score.ToString();
     }
 
     void CheckAnswer()
@@ -49,15 +49,24 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
 
         if(givenAns == answer)
         {
+            audioSource.Stop();
+            audioSource.PlayOneShot(correctSfx);
+
             Debug.Log("Correct!!!");
             answered = true;
-        }
-
-        
+            Scorer.score += long.Parse(timerText.text);
+            scoreText.text = Scorer.score.ToString();
+        }        
     }
 
     public void OnLetterDrop()
     {
         CheckAnswer();
+    }
+
+    public void OnWrongAnswer()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(incorrectSfx);
     }
 }

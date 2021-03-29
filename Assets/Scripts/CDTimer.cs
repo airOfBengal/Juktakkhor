@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CountDownTimer : MonoBehaviour
+public class CDTimer : MonoBehaviour
 {
     [SerializeField] int timeToPlay = 10;
+    [SerializeField] float loadWaitingTime = 1f;
+
 
     SceneLoader sceneLoader;
-
+    GameManager gameManager;
     int currentCountDownValue;
     TextMeshProUGUI timerText;
     TextMeshProUGUI scoreText;
@@ -20,7 +22,8 @@ public class CountDownTimer : MonoBehaviour
         sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
         timerText = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.Find("Score Text").GetComponent<TextMeshProUGUI>();
-        scoreText.text = Scorer.score.ToString();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+     
         StartCoroutine(StartCountDown());
     }
 
@@ -37,12 +40,18 @@ public class CountDownTimer : MonoBehaviour
         }
 
         // update score
-        if(currentCountDownValue >= 0)
+        if(currentCountDownValue <= 0 && !GameManager.answered)
         {
-            Scorer.score += long.Parse(timerText.text);
+            gameManager.OnWrongAnswer();           
         }
-        
 
+        StartCoroutine(WaitBeforeLoad());        
+    }
+
+    IEnumerator WaitBeforeLoad()
+    {
+        
+        yield return new WaitForSeconds(loadWaitingTime);
         GameManager.answered = false;
         sceneLoader.LoadNewScene();
     }
