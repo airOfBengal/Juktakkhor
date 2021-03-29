@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 1494178031}
   - component: {fileID: 1494178033}
   - component: {fileID: 1494178032}
+  - component: {fileID: 1494178034}
   m_Layer: 5
   m_Name: Game Title
   m_TagString: Untagged
@@ -954,6 +955,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494178030}
   m_CullTransparentMesh: 1
+--- !u!114 &1494178034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494178030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790744c462254b7ba8038e6ed28b3db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VertexCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 1.0476705
+      outSlope: 1.0476705
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.3193277
+    - serializedVersion: 3
+      time: 0.49583334
+      value: 1.2968898
+      inSlope: 0.004948497
+      outSlope: 0.004948497
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -1.1372918
+      outSlope: -1.1372918
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2975206
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AngleMultiplier: 1
+  SpeedMultiplier: 1
+  CurveScale: 1
 --- !u!1 &1984330457
 GameObject:
   m_ObjectHideFlags: 0
