@@ -7268,7 +7268,7 @@ GameObject:
   - component: {fileID: 1335536923}
   - component: {fileID: 1335536925}
   - component: {fileID: 1335536924}
-  - component: {fileID: 1335536926}
+  - component: {fileID: 1335536927}
   m_Layer: 5
   m_Name: Timer Text
   m_TagString: Untagged
@@ -7315,7 +7315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1148e7c92d9ccc14da37810f1183b10a, type: 2}
   m_sharedMaterial: {fileID: -719381396338043699, guid: 1148e7c92d9ccc14da37810f1183b10a, type: 2}
@@ -7392,20 +7392,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335536922}
   m_CullTransparentMesh: 1
---- !u!114 &1335536926
-MonoBehaviour:
+--- !u!95 &1335536927
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335536922}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f5202b8200ede94185957046e363c20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToPlay: 10
-  loadWaitingTime: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb9e84138c2f28342817e10617372baa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1368152505
 GameObject:
   m_ObjectHideFlags: 0
@@ -8347,6 +8352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToPlay: 10
   loadWaitingTime: 1
+  timerAnimator: {fileID: 1335536927}
 --- !u!4 &1655101056
 Transform:
   m_ObjectHideFlags: 0

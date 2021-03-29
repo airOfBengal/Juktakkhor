@@ -7,7 +7,7 @@ public class CDTimer : MonoBehaviour
 {
     [SerializeField] int timeToPlay = 10;
     [SerializeField] float loadWaitingTime = 1f;
-
+    [SerializeField] Animator timerAnimator;
 
     SceneLoader sceneLoader;
     GameManager gameManager;
@@ -34,17 +34,16 @@ public class CDTimer : MonoBehaviour
         while(currentCountDownValue >= 0 && !GameManager.answered)
         {
             timerText.text = currentCountDownValue.ToString();
-
+            timerAnimator.SetTrigger("TimerTrigger");
             yield return new WaitForSeconds(1f);
             currentCountDownValue--;
         }
 
-        // update score
         if(currentCountDownValue <= 0 && !GameManager.answered)
         {
             gameManager.OnWrongAnswer();           
         }
-
+        timerAnimator.enabled = false;
         StartCoroutine(WaitBeforeLoad());        
     }
 
