@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
     [SerializeField] TextMeshProUGUI compoundLetterText;
     [SerializeField] GameObject compoundLetterHolder;
     [SerializeField] GameObject constituentItemHolder;
-   // [SerializeField] Juktakkhor juktakkhor;
+    [SerializeField] SceneLoader sceneLoader;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip correctSfx;
     [SerializeField] AudioClip incorrectSfx;
@@ -36,6 +36,14 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
         }
 
         scoreText.text = Scorer.score.ToString();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            sceneLoader.LoadMenu();
+        }
     }
 
     void CheckAnswer()
