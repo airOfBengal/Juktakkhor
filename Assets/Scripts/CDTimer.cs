@@ -37,6 +37,7 @@ public class CDTimer : MonoBehaviour
             timerAnimator.SetTrigger("TimerTrigger");
             yield return new WaitForSeconds(1f);
             currentCountDownValue--;
+            timerAnimator.ResetTrigger("TimerTrigger");
         }
 
         if(currentCountDownValue <= 0 && !GameManager.answered)

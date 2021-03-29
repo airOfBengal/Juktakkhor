@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
     [SerializeField] AudioClip incorrectSfx;
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] Animator scorerAnimator;
+    [SerializeField] GameObject scorerAnimObject;
+    [SerializeField] TextMeshProUGUI scorerAnimText;
 
     string answer;
 
@@ -62,8 +65,11 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
 
             Debug.Log("Correct!!!");
             answered = true;
-            Scorer.score += long.Parse(timerText.text);
-            scoreText.text = Scorer.score.ToString();
+
+            
+            //scorerAnimator.
+            
+            StartCoroutine(WaitForScoreAnimation());
         }        
     }
 
@@ -76,5 +82,20 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
     {
         audioSource.Stop();
         audioSource.PlayOneShot(incorrectSfx);
+    }
+
+    IEnumerator WaitForScoreAnimation()
+    {
+        string score = timerText.text;
+        scorerAnimObject.SetActive(true);
+        scorerAnimText.text = "+" + score;
+        scorerAnimator.SetTrigger("ScoreTrigger");
+
+        yield return new WaitForSeconds(0.25f);
+
+        scorerAnimObject.SetActive(false);
+        Scorer.score += long.Parse(score);
+        scoreText.text = Scorer.score.ToString();
+        scorerAnimator.ResetTrigger("ScoreTrigger");
     }
 }
