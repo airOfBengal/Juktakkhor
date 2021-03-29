@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Juktakkhor : MonoBehaviour
 {
+    private static Juktakkhor _instance;
+
+    public static Juktakkhor Instance { get { return _instance; } }
+
     Dictionary<string, string> compoundLetters = new Dictionary<string, string>();
     System.Random _random = new System.Random();
     static int currentLetterIndex = 0;
@@ -11,7 +15,14 @@ public class Juktakkhor : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if(_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
     [SerializeField] TextMeshProUGUI compoundLetterText;
     [SerializeField] GameObject compoundLetterHolder;
     [SerializeField] GameObject constituentItemHolder;
-    [SerializeField] Juktakkhor juktakkhor;
+   // [SerializeField] Juktakkhor juktakkhor;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip correctSfx;
     [SerializeField] AudioClip incorrectSfx;
@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
     // Start is called before the first frame update
     void Start()
     {
-        string compoundLetter = juktakkhor.NextCompoundLetter();
+        string compoundLetter = Juktakkhor.Instance.NextCompoundLetter();
         compoundLetterText.text = compoundLetter;
-        answer = juktakkhor.GetAnswer(compoundLetter);
+        answer = Juktakkhor.Instance.GetAnswer(compoundLetter);
 
         for(int i=0;i<answer.Length;i++)
         {
