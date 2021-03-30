@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
     [SerializeField] AudioClip clickSfx;
     [SerializeField] TextMeshProUGUI maxScoreText;
     [SerializeField] GameObject newMaxScoreHolder;
+    [SerializeField] ParticleSystem congratulateParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class Menu : MonoBehaviour
             maxScore = Scorer.score;
 
             newMaxScoreHolder.SetActive(true);
+            Instantiate<ParticleSystem>(congratulateParticle);
         }
 
         maxScoreText.text = "m‡e©v”P †¯‹vit " + maxScore.ToString();

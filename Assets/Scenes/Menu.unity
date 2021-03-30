@@ -232,7 +232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.0669, y: -84.7342}
+  m_AnchoredPosition: {x: 3.0669, y: -84.73421}
   m_SizeDelta: {x: 598.6971, y: 71.4683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597077855
@@ -969,6 +969,7 @@ MonoBehaviour:
   clickSfx: {fileID: 8300000, guid: de644ce5769dc0b40bba431a5c8cfb90, type: 3}
   maxScoreText: {fileID: 597077855}
   newMaxScoreHolder: {fileID: 667859499}
+  congratulateParticle: {fileID: 5310233717372843054, guid: 97ed7eac43fa58045a966e8dcd933d66, type: 3}
 --- !u!1 &1299795890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,8 +1652,8 @@ Canvas:
   m_GameObject: {fileID: 2027891099}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1291355369}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
