@@ -1,17 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField] SceneLoader sceneLoader;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip clickSfx;
+    [SerializeField] TextMeshProUGUI maxScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(!PlayerPrefs.HasKey("max_score"))
+        {
+            PlayerPrefs.SetString("max_score", Scorer.score.ToString());
+        }
+
+        long maxScore = long.Parse(PlayerPrefs.GetString("max_score"));
+        if(Scorer.score > maxScore)
+        {
+            Debug.Log("new max score: "+ Scorer.score);
+            PlayerPrefs.SetString("max_score", Scorer.score.ToString());
+            maxScore = Scorer.score;
+        }
+
+        maxScoreText.text = "m‡e©v”P †¯‹vit " + maxScore.ToString();
     }
 
     // Update is called once per frame
