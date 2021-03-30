@@ -8193,6 +8193,7 @@ MonoBehaviour:
   scorerAnimator: {fileID: 576799537}
   scorerAnimObject: {fileID: 576799535}
   scorerAnimText: {fileID: 576799538}
+  dropSfx: {fileID: 8300000, guid: 9a1bbc054893a5444b588bcae2d91ac8, type: 3}
 --- !u!4 &1582134924
 Transform:
   m_ObjectHideFlags: 0

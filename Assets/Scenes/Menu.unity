@@ -620,6 +620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 1376452825}
+  audioSource: {fileID: 1215731095}
+  clickSfx: {fileID: 8300000, guid: de644ce5769dc0b40bba431a5c8cfb90, type: 3}
 --- !u!1 &1299795890
 GameObject:
   m_ObjectHideFlags: 0

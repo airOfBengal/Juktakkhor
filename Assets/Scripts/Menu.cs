@@ -5,6 +5,9 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     [SerializeField] SceneLoader sceneLoader;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clickSfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +22,14 @@ public class Menu : MonoBehaviour
 
     public void OnStartClick()
     {
+        audioSource.PlayOneShot(clickSfx);
         sceneLoader.LoadNewScene();
     }
 
     public void OnQuitClick()
     {
+        audioSource.PlayOneShot(clickSfx);
+
 #if (UNITY_EDITOR || DEVELOPMENT_BUILD)
         Debug.Log(this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
 #endif
