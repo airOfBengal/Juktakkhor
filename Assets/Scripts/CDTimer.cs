@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -31,13 +30,12 @@ public class CDTimer : MonoBehaviour
     IEnumerator StartCountDown()
     {
         currentCountDownValue = timeToPlay;
-        while(currentCountDownValue >= 0 && !GameManager.answered)
+        while(currentCountDownValue > 0 && !GameManager.answered)
         {
             timerText.text = currentCountDownValue.ToString();
             timerAnimator.SetTrigger("TimerTrigger");
             yield return new WaitForSeconds(1f);
             currentCountDownValue--;
-            //timerAnimator.ResetTrigger("TimerTrigger");
         }
 
         if(currentCountDownValue <= 0 && !GameManager.answered)

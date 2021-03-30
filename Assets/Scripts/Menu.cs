@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -12,7 +10,6 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject newMaxScoreHolder;
     [SerializeField] ParticleSystem congratulateParticle;
 
-    // Start is called before the first frame update
     void Start()
     {
         newMaxScoreHolder.SetActive(false);
@@ -34,12 +31,6 @@ public class Menu : MonoBehaviour
         }
 
         maxScoreText.text = "m‡e©v”P †¯‹vit " + maxScore.ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnStartClick()

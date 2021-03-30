@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +36,7 @@ public class Juktakkhor : MonoBehaviour
             shuffledCompoundLetters[i++] = s;
         }
 
-        //Shuffle(shuffledCompoundLetters);
+        Shuffle(shuffledCompoundLetters);
     }
 
 
@@ -69,10 +68,53 @@ public class Juktakkhor : MonoBehaviour
 
     void FillCompoundLettersMap()
     {
-        compoundLetters.Add("°", "KK");
-        compoundLetters.Add("±", "KU");
         compoundLetters.Add("³", "KZ");
-        compoundLetters.Add("³«", "KZi");
-        compoundLetters.Add("K¡", "Ke");
+        compoundLetters.Add("³«", "KZi");        
+        compoundLetters.Add("´", "Kg");
+        compoundLetters.Add("µ", "Ki");        
+        compoundLetters.Add("¶", "Kl");        
+        compoundLetters.Add("¶è", "KlY");        
+        compoundLetters.Add("²", "Klg");        
+        compoundLetters.Add("·", "Km");
+        compoundLetters.Add("»", "Ma");
+        compoundLetters.Add("M¥", "Mg");
+        compoundLetters.Add("¼", "OK");
+        compoundLetters.Add("•¶", "OKl");
+        compoundLetters.Add("½", "OM");
+        compoundLetters.Add("¾¡", "RRe");
+        compoundLetters.Add("Á", "RT");
+        compoundLetters.Add("Â", "TP");
+        compoundLetters.Add("Ã", "TQ");
+        compoundLetters.Add("Æ", "UU");
+        compoundLetters.Add("U¥", "Ug");
+        compoundLetters.Add("Uª", "Ui");
+        compoundLetters.Add("È", "YU");
+        compoundLetters.Add("É", "YV");
+        compoundLetters.Add("Ê", "YW");
+        compoundLetters.Add("Y¥", "Yg");
+        compoundLetters.Add("Ë", "ZZ");
+        compoundLetters.Add("Ì", "Z_");
+        compoundLetters.Add("Í", "Zg");
+        compoundLetters.Add("Î", "Zi");
+        compoundLetters.Add("Ù", "`g");
+        compoundLetters.Add("a¥", "ag");
+        compoundLetters.Add("›U", "bU");
+        compoundLetters.Add("Ú", "bV");
+        compoundLetters.Add("b¥", "bg");
+        compoundLetters.Add("å", "fi");
+        compoundLetters.Add("æ", "gb");
+        compoundLetters.Add("¤c", "gc");
+        compoundLetters.Add("j¥", "jg");
+        compoundLetters.Add("k¥", "kg");
+        compoundLetters.Add("®‹", "lK");
+        compoundLetters.Add("ó", "lU");
+        compoundLetters.Add("ô", "lV");
+        compoundLetters.Add("ò", "lY");
+        compoundLetters.Add("®c", "lc");
+        compoundLetters.Add("®§", "lg");
+        compoundLetters.Add("÷", "mU");
+        compoundLetters.Add("¯’", "m_");
+        compoundLetters.Add("ý", "nb");
+        compoundLetters.Add("þ", "ng");
     }
 }

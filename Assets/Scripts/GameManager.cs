@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -63,13 +62,8 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
         {
             audioSource.Stop();
             audioSource.PlayOneShot(correctSfx);
-
-            Debug.Log("Correct!!!");
             answered = true;
-
-            
-            //scorerAnimator.
-            
+                                
             StartCoroutine(WaitForScoreAnimation());
         }        
     }
@@ -97,7 +91,6 @@ public class GameManager : MonoBehaviour, DropHandler.ILetterDropListener
         scorerAnimObject.SetActive(false);
         Scorer.score += long.Parse(score);
         scoreText.text = Scorer.score.ToString();
-        //scorerAnimator.ResetTrigger("ScoreTrigger");
     }
 
     IEnumerator WaitForLetterDrop()
