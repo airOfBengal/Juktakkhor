@@ -9,10 +9,13 @@ public class Menu : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip clickSfx;
     [SerializeField] TextMeshProUGUI maxScoreText;
+    [SerializeField] GameObject newMaxScoreHolder;
 
     // Start is called before the first frame update
     void Start()
     {
+        newMaxScoreHolder.SetActive(false);
+
         if(!PlayerPrefs.HasKey("max_score"))
         {
             PlayerPrefs.SetString("max_score", Scorer.score.ToString());
@@ -24,6 +27,8 @@ public class Menu : MonoBehaviour
             Debug.Log("new max score: "+ Scorer.score);
             PlayerPrefs.SetString("max_score", Scorer.score.ToString());
             maxScore = Scorer.score;
+
+            newMaxScoreHolder.SetActive(true);
         }
 
         maxScoreText.text = "m‡e©v”P †¯‹vit " + maxScore.ToString();
